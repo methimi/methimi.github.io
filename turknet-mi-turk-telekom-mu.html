@@ -263,7 +263,7 @@
       Taahhüt istemiyor, özgür ve şeffaf bir internet deneyimi arıyorsan
       TurkNet çoğu kullanıcı için daha mantıklı bir seçenek oluyor.
     </p>
-    <a href="REF_LINK_BURAYA" target="_blank">
+    <a href="https://www.turk.net/internet-hiz-altyapi-sorgulama?promo=SPV86MV36TNO" target="_blank" id="notify-link">
       🚀 TurkNet’e Taahhütsüz Geç
     </a>
   </section>
@@ -273,6 +273,31 @@
   </footer>
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const link = document.getElementById("notify-link");
+  if (!link) return;
 
+  link.addEventListener("click", function (e) {
+    e.preventDefault(); // yönlendirmeyi kısa süre durdur
+
+    fetch("https://methimigithubio-production.up.railway.app/visit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "click",
+        page: window.location.pathname,
+        text: link.innerText,
+        href: link.href
+      })
+    }).finally(() => {
+      // bildirimi gönder, sonra yönlendir
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 150);
+    });
+  });
+});
+</script>
 </body>
 </html>
