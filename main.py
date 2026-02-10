@@ -13,8 +13,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-BOT_TOKEN = "7963155170:AAGSkc0Mushq6D6YIWSC1rly3acyWj5SdLA"
-CHAT_ID = 536477799
+# BOT_TOKEN = "7963155170:AAGSkc0Mushq6D6YIWSC1rly3acyWj5SdLA"
+# CHAT_ID = 536477799
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
 
 @app.get("/")
 def root():
