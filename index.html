@@ -84,39 +84,5 @@ Paylaşımlar reklam amacıyla değil, deneyim aktarmak içindir.
 <p class="note">
 Bu sitedeki bazı bağlantılar referans içerebilir. Tüm içerikler kişisel deneyime dayanmaktadır.
 </p>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const link = document.getElementById("notify-link");
-  if (!link) return;
-
-  link.addEventListener("click", function (e) {
-    e.preventDefault(); // yönlendirmeyi kısa süre durdur
-
-    fetch("https://methimigithubio-production.up.railway.app/visit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: "click",
-        page: window.location.pathname,
-        text: link.innerText,
-        href: link.href
-      })
-    }).finally(() => {
-      // bildirimi gönder, sonra yönlendir
-      setTimeout(() => {
-        window.location.href = link.href;
-      }, 150);
-    });
-  });
-});
-</script>
-
-<a
-  href="https://ornek-site.com/satin-al"
-  id="notify-link"
->
-  Satın Al
-</a>
-
 </body>
 </html>
