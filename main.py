@@ -3,8 +3,8 @@ import requests, os, datetime
 
 app = FastAPI()
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+BOT_TOKEN = "7963155170:AAGSkc0Mushq6D6YIWSC1rly3acyWj5SdLA"
+CHAT_ID = 536477799
 
 def send_telegram(msg: str):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
