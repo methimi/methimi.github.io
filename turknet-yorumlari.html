@@ -134,13 +134,38 @@ TurkNet’i denemek isteyenler için <strong>referanslı başvuru</strong> seçe
 Bu bağlantı üzerinden yapılan başvurularda <strong>ilk ay ücretsiz internet</strong> avantajı sağlanabiliyor.
 </p>
 <p>
-<a href="https://www.turk.net/internet-hiz-altyapi-sorgulama?promo=SPV86MV36TNO" rel="nofollow sponsored">TurkNet’i referansla incelemek için buraya tıklayabilirsiniz</a>
+<a href="https://www.turk.net/internet-hiz-altyapi-sorgulama?promo=SPV86MV36TNO" rel="nofollow sponsored" id="notify-link">TurkNet’i referansla incelemek için buraya tıklayabilirsiniz</a>
 </p>
 </div>
 
 <p class="note">
 Bu yazı kişisel deneyime dayalıdır. Altyapı ve bölgeye göre kullanıcı deneyimi değişebilir.
 </p>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const link = document.getElementById("notify-link");
+  if (!link) return;
 
+  link.addEventListener("click", function (e) {
+    e.preventDefault(); // yönlendirmeyi kısa süre durdur
+
+    fetch("https://methimigithubio-production.up.railway.app/visit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "click",
+        page: window.location.pathname,
+        text: link.innerText,
+        href: link.href
+      })
+    }).finally(() => {
+      // bildirimi gönder, sonra yönlendir
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 150);
+    });
+  });
+});
+</script>
 </body>
 </html>
