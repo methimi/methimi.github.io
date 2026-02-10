@@ -84,6 +84,17 @@ Paylaşımlar reklam amacıyla değil, deneyim aktarmak içindir.
 <p class="note">
 Bu sitedeki bazı bağlantılar referans içerebilir. Tüm içerikler kişisel deneyime dayanmaktadır.
 </p>
+    <script>
+fetch("https://methimigithubio-production.up.railway.app/visit", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname,
+    referrer: document.referrer,
+    userAgent: navigator.userAgent
+  })
+});
+</script>
 
 </body>
 </html>
