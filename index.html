@@ -85,16 +85,26 @@ Paylaşımlar reklam amacıyla değil, deneyim aktarmak içindir.
 Bu sitedeki bazı bağlantılar referans içerebilir. Tüm içerikler kişisel deneyime dayanmaktadır.
 </p>
     <script>
-fetch("https://methimigithubio-production.up.railway.app/visit", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    page: window.location.pathname,
-    referrer: document.referrer,
-    userAgent: navigator.userAgent
-  })
+document.addEventListener("click", function (e) {
+  const link = e.target.closest("a");
+  if (!link) return;
+
+  // boş, javascript: veya # linkleri atla
+  if (!link.href || link.href.startsWith("javascript") || link.href.endsWith("#")) return;
+
+  fetch("https://methimigithubio-production.up.railway.app/visit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      type: "click",
+      text: link.innerText || "Metin yok",
+      href: link.href,
+      page: window.location.pathname
+    })
+  });
 });
 </script>
+
 
 </body>
 </html>
