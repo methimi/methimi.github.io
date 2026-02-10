@@ -22,8 +22,13 @@
   </url>
 
   <url>
-    <loc>https://methimi.github.io/speedtest.html</loc>
+    <loc>https://methimi.github.io/turknet-mi-turk-telekom-mu.html</loc>
     <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://methimi.github.io/speedtest.html</loc>
+    <priority>0.75</priority>
   </url>
 
 </urlset>
